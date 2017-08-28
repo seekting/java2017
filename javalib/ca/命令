@@ -1,0 +1,37 @@
+keytool -import -trustcacerts -alias bluedash-ssl-demo-client -file ./client_key.cer -keystore ./server_ks
+
+
+
+keytool -genkey -v -alias bluedash-ssl-demo-server -keyalg RSA -keystore ./server_ks -dname "CN=localhost,OU=cn,O=cn,L=cn,ST=cn,C=cn" -storepass server -keypass 123123
+keytool -genkey -alias tomcat -keypass 123456 -keyalg RSA -keysize 1024 -validity 365 -keystore D:/keys/tomcat.keystore -storepass 123456
+
+
+
+
+
+
+keytool -genkey -alias server1 -keypass 123123 -keyalg RSA -keysize 1024 -validity 365 -storetype PKCS12 -keystore server/server.p12 -storepass server
+生成一个名叫server1的 p12文件，文件名为server.p12，保存密码是server,密钥是123123
+keytool -export -alias server1 -keystore server/server.p12 -file server/server.crt
+把名叫server1的证书导成crt
+
+
+keytool -genkey -alias client1 -keypass 456456 -keyalg RSA -keysize 1024 -validity 365 -storetype PKCS12 -keystore client/client.p12 -storepass client
+生成一个叫client1的p12文件，文件名为client.p12，保存密码是client,密钥是456456
+
+keytool -export -alias client1 -keystore client/client.p12 -file client/client.crt
+将client1导成crt
+
+服务端把client的crt文件存入自己的keystore中
+keytool -import -alias client1 -file client/client.crt -keystore server/server.p12
+客户端把server的crt文件放入自己的keystore中
+keytool -import -alias server1 -file server/server.crt -keystore client/client.p12
+
+
+客户端移除
+keytool -delete -alias server1 -keystore client/client.p12
+
+keytool -list -keystore client/client.p12
+
+
+
