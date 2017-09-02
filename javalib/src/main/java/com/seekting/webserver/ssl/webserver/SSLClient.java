@@ -19,7 +19,7 @@ import javax.net.ssl.TrustManagerFactory;
  */
 
 public class SSLClient {
-    private static String CLIENT_KEY_STORE = "./ca/client/client.p12";
+    private static String CLIENT_KEY_STORE = "javalib/ca/client/client.p12";
     private static String CLIENT_KEY_STORE_PASSWORD = "client";
 
 //    public static final String SERVER_KEY_STORE = "./ca/server/server.p12";

@@ -1,6 +1,7 @@
 package com.seekting.webserver.ssl.webserver;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -21,7 +22,7 @@ import javax.net.ssl.TrustManagerFactory;
 public class Main {
 
 
-    public static final String SERVER_KEY_STORE = "./ca/server/server.p12";
+    public static final String SERVER_KEY_STORE = "javalib/ca/server/server.p12";
     private static String SERVER_KEY_STORE_PASSWORD = "server";
 
 
@@ -30,6 +31,8 @@ public class Main {
 
 
     public static void main(String args[]) throws Throwable {
+        File f=new File(SERVER_KEY_STORE);
+        System.out.println(""+f.getAbsolutePath());
         SSLContext context = SSLContext.getInstance("TLS");
 
         KeyStore ks = KeyStore.getInstance("PKCS12");
