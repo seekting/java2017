@@ -1,6 +1,7 @@
 package com;
 
 /**
+ * 递归实现链表倒转
  * Created by Administrator on 2017/9/2.
  */
 
@@ -14,7 +15,7 @@ public class RevertLink {
         Node head1 = new Node(node2, 1);
 
         Node.print(head1);
-        Node head2 = n(null, head1);
+        Node head2 = reverse(null, head1);
         Node.print(head2);
 
     }
@@ -27,13 +28,13 @@ public class RevertLink {
      * @param left
      * @param node
      */
-    private static Node n(Node left, Node node) {
+    private static Node reverse(Node left, Node node) {
         if (node == null) {
             return left;
         }
         Node next = node.next;
         node.next = left;
-        return n(node, next);
+        return reverse(node, next);
 
     }
 
