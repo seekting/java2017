@@ -1,9 +1,9 @@
-1.ÅÅĞòËã·¨
+1.æ’åºç®—æ³•
 2.aidl
 3.ndk
-4.activityÆô¶¯¹ı³Ì
-5.¿ª»úÁ÷³Ì
-6.httpĞ­Òé
-7.glide,okhttp,leakÔ´Âë
-8.fragmentÉúÃüÖÜÆÚ
-9.
+4.activityå¯åŠ¨è¿‡ç¨‹
+5.å¼€æœºæµç¨‹
+6.httpåè®®
+7.glide,okhttp,leakæºç 
+8.fragmentç”Ÿå‘½å‘¨æœŸ
+9.CyclicBarrierå’ŒCountDownLatchçš„åŒºåˆ«
