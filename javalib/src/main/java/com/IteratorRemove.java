@@ -18,15 +18,17 @@ public class IteratorRemove {
         }
 
         Iterator<String> iterator = integers.iterator();
-        while (iterator.hasNext()) {
-            String j = iterator.next();
-            System.out.println("j=" + j);
-            int res = Integer.parseInt(j);
-            if (res % 3 == 0 || res % 2 == 0) {
-                iterator.remove();
-            }
-
-        }
+        integers.add("111");
+        iterator.next();
+//        while (iterator.hasNext()) {
+//            String j = iterator.next();
+//            System.out.println("j=" + j);
+//            int res = Integer.parseInt(j);
+//            if (res % 3 == 0 || res % 2 == 0) {
+//                iterator.remove();
+//            }
+//
+//        }
 
 
 //        for (int i = 0; i < integers.size(); i++) {
