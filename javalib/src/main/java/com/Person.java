@@ -41,7 +41,41 @@ public class Person {
 //            System.out.println("" + f.toString());
 //        }
 
-        Lock lock=new ReentrantLock();
-        lock.lock();
+        final Lock lock = new ReentrantLock();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                lock.lock();
+                lock.lock();
+                lock.lock();
+//                lock.unlock();
+
+            }
+        }).start();
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                lock.lock();
+//            }
+//        }).start();
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                lock.lock();
+//            }
+//        }).start();
+//
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                lock.lock();
+//            }
+//        }).start();
+//
     }
 }
